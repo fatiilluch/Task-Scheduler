@@ -28,10 +28,17 @@ class App extends Component {
     this.setState(
       {
         todos: this.state.todos.filter((todo, i ) => {
-          return i != index
+          return i !== index
         })
       })
     }
+  }
+
+  editarTarea(todo){
+    alert(todo.state);
+    //for (let i=0; i<= todos.length; i++) {
+    //  console.log(i.title + i.responsible + i.priority + i.description);
+    //}
   }
 
   render() {
@@ -50,9 +57,10 @@ class App extends Component {
               <mark> {todo.responsible} </mark>
             </div>
             <div className="card-footer">
-              <button className="btn btn-danger" onClick={this.borrarTarea.bind(this, i)}>
-                Delete
-              </button>
+              <button className="btn btn-danger" onClick={this.borrarTarea.bind(this, i)}> Borrar </button>
+            </div>
+            <div>
+              <button className="btn btn-dark" onClick={this.editarTarea.bind(this)}> Editar </button>
             </div>
           </div>
         </div>
